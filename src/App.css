@@ -1,0 +1,22 @@
+.news-item{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+.news-sub-item{
+    margin:10px 10px 10px 50px;
+}
+
+.hoverLink li:hover{
+    background-color: rgb(247, 242, 242);
+}
+.navsbar{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.newsItems{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.headline{
+    text-shadow: 2px 2px 8px;
+}
