@@ -14,7 +14,6 @@ function Newsitems({ category }) {
     axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`).then((res) => {
         dispatch(fetchactions.setlength(res.data.articles.length))
     })
-    console.log(datalength);
     useEffect(() => {
         axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=1&pageSize=6`).then((res) => {
             setdatas(res.data.articles)
