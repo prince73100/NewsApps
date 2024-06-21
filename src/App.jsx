@@ -3,8 +3,8 @@ import Navbar from './component/Navbar'
 import Newsitems from './component/Newsitems'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-function App() {
 
+function App() {
   return (
     <BrowserRouter>
       <Navbar />
@@ -17,7 +17,6 @@ function App() {
         <Route path='/sports' element={<Newsitems category='sports' />} />
         <Route path='/technology' element={<Newsitems category='technology' />} />
       </Routes>
-
     </BrowserRouter>
   )
 }

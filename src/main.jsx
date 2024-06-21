@@ -6,6 +6,7 @@ import {Provider} from 'react-redux'
 import newsStore from './store/index.js'
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={newsStore} >

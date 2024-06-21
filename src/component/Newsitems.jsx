@@ -11,19 +11,19 @@ function Newsitems({ category }) {
     const { datalength } = useSelector((store) => store.fetchNews)
     const dispatch = useDispatch()
     const [datas, setdatas] = useState([])
-    axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=931e3eccf639415e8d997b4c9c4eba13`).then((res) => {
+    axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`).then((res) => {
         dispatch(fetchactions.setlength(res.data.articles.length))
     })
     console.log(datalength);
     useEffect(() => {
-        axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=931e3eccf639415e8d997b4c9c4eba13&page=1&pageSize=6`).then((res) => {
+        axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=1&pageSize=6`).then((res) => {
             setdatas(res.data.articles)
             dispatch(fetchactions.isSpinner())
         })
     }, [])
 
     const fetchAgain = (currentPage) => {
-        axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=931e3eccf639415e8d997b4c9c4eba13&page=${currentPage}&pageSize=6`).then((res) => {
+        axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=${currentPage}&pageSize=6`).then((res) => {
             setdatas(res.data.articles)
             dispatch(fetchactions.isSpinner())
         })
