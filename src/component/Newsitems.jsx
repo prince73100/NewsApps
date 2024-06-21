@@ -9,6 +9,7 @@ import ReactPaginate from 'react-paginate';
 function Newsitems({ category }) {
     const { spineer } = useSelector((store) => store.fetchNews)
     const { datalength } = useSelector((store) => store.fetchNews)
+    const {error}  = useSelector((store)=>store.fetchNews)
     const dispatch = useDispatch()
     const [datas, setdatas] = useState([])
     axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`).then((res) => {
@@ -18,6 +19,8 @@ function Newsitems({ category }) {
         axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=1&pageSize=6`).then((res) => {
             setdatas(res.data.articles)
             dispatch(fetchactions.isSpinner())
+        }).catch((error)=>{
+            dispatch(fetchactions.iserror(error.message))
         })
     }, [])
 
@@ -37,6 +40,7 @@ function Newsitems({ category }) {
                 <h1 className='headline' style={{ textAlign: "center" }}> NewsBreak - Top <span className=' text-primary'> {category} </span> News </h1>
             </div>
             {spineer && <Spineer />}
+            {error === ""? <></>: <h1>{error}</h1>}
             <div className="news-item">
                 {
                     datas.map((data) => {

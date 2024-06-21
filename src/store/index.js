@@ -1,11 +1,12 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
+
 
 const fetchSlice = createSlice({
     name: 'fetchNews',
     initialState: {
         spineer: true,
-        datalength:0
+        datalength:0,
+        error:""
     },
     reducers: {
         isSpinner: (state, actions) => {
@@ -13,6 +14,9 @@ const fetchSlice = createSlice({
         },
         setlength:(state,actions)=>{
             state.datalength  = actions.payload
+        },
+        iserror:(state,actions)=>{
+            state.error = actions.payload
         }
     }
 })

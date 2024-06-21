@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from './component/Navbar'
 import Newsitems from './component/Newsitems'
 import './App.css'
