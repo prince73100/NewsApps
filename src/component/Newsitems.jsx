@@ -13,12 +13,12 @@ function Newsitems({ category }) {
     const dispatch = useDispatch()
     const [datas, setdatas] = useState([])
     //////// For geting length of data
-    axios.get(`http://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`).then((res) => {
+    axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`).then((res) => {
         dispatch(fetchactions.setlength(res.data.articles.length))
     })
     //  Fetching data 
     useEffect(() => {
-        axios.get(`http://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=1&pageSize=6`).then((res) => {
+        axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=1&pageSize=6`).then((res) => {
             setdatas(res.data.articles)
             dispatch(fetchactions.isSpinner())
         }).catch((error)=>{
@@ -27,7 +27,7 @@ function Newsitems({ category }) {
     }, [])
 // again fetching data
     const fetchAgain = (currentPage) => {
-        axios.get(`http://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=${currentPage}&pageSize=6`).then((res) => {
+        axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}&page=${currentPage}&pageSize=6`).then((res) => {
             setdatas(res.data.articles)
             dispatch(fetchactions.isSpinner())
         })
